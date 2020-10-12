@@ -23,3 +23,7 @@ let secondresult=($a*$b)+$c
 echo "secondResult:" $secondresult
 echo ""
 
+#ThirdOperation
+let Thirdresult=($c+$a)/$b
+echo "ThirdResult:" $Thirdresult
+echo ""
