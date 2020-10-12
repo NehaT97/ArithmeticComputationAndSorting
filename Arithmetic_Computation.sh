@@ -24,6 +24,11 @@ echo "secondResult:" $secondresult
 echo ""
 
 #ThirdOperation
-let Thirdresult=($c+$a)/$b
-echo "ThirdResult:" $Thirdresult
+let thirdresult=($c+$a)/$b
+echo "ThirdResult:" $thirdresult
+echo ""
+
+#FourthOperation
+let fourthresult=($a%$b)+$c
+echo "FourthResult:" $fourthresult
 echo ""
