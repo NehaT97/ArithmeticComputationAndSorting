@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 #Welcome to Arithmetic Computation And Sorting#
 
 #Read User Input
@@ -41,3 +41,24 @@ ArithmeticOperation[thirdresult]=$thirdresult
 ArithmeticOperation[fourthresult]=$fourthresult
 
 echo "All Arithmetic Computation Result in Dictionary :" ${ArithmeticOperation[@]}
+echo ""
+
+#Read The Dictionary Value To Array
+<<EOF 
+for(( index=1;index<=${#ArithmeticOperation[@]};index++ ))
+do
+	array[index]=${ArithmeticOperation[$((index))]}	
+done
+#Array Result
+echo "${array[@]}"
+#echo "All Arithmetic Computation Result in Array :" ${array[@]}
+EOF
+
+
+#Read The Dictionary Value to Array
+for i in "${ArithmeticOperation[@]}"
+do
+	#echo $i
+	array[i]=$i
+done
+        echo "Data In Array:"${array[@]}
