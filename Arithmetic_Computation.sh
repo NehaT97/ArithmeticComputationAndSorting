@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash 
 #Welcome to Arithmetic Computation And Sorting#
 
 #Read User Input
@@ -32,3 +32,12 @@ echo ""
 let fourthresult=($a%$b)+$c
 echo "FourthResult:" $fourthresult
 echo ""
+
+#Store Result In Dictionary
+declare -A ArithmeticOperation
+ArithmeticOperation[firstresult]=$firstresult
+ArithmeticOperation[secondresult]=$secondresult
+ArithmeticOperation[thirdresult]=$thirdresult
+ArithmeticOperation[fourthresult]=$fourthresult
+
+echo "All Arithmetic Computation Result in Dictionary :" ${ArithmeticOperation[@]}
