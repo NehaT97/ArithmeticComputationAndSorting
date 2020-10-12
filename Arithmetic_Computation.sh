@@ -10,3 +10,8 @@ read -p "C:" c
 echo "A:" $a
 echo "B:" $b
 echo "C:" $c
+
+#FirstOperation
+
+let firstresult=($a+$b)*$c
+echo "FirstResult:" $firstresult
