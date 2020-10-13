@@ -40,25 +40,39 @@ ArithmeticOperation[secondresult]=$secondresult
 ArithmeticOperation[thirdresult]=$thirdresult
 ArithmeticOperation[fourthresult]=$fourthresult
 
+echo "Index Of Dictionaries:"${!ArithmeticOperation[@]}
+echo ""
 echo "All Arithmetic Computation Result in Dictionary :" ${ArithmeticOperation[@]}
 echo ""
 
-#Read The Dictionary Value To Array
-<<EOF 
-for(( index=1;index<=${#ArithmeticOperation[@]};index++ ))
-do
-	array[index]=${ArithmeticOperation[$((index))]}	
-done
-#Array Result
-echo "${array[@]}"
-#echo "All Arithmetic Computation Result in Array :" ${array[@]}
-EOF
-
 
 #Read The Dictionary Value to Array
+echo""
+index=0;
 for i in "${ArithmeticOperation[@]}"
 do
-	#echo $i
-	array[i]=$i
+	
+	#echo "I:" $i
+	array[index++]=$i
 done
-        echo "Data In Array:"${array[@]}
+        echo "Index of Array:" ${!array[@]}
+	echo "Array Data:" ${array[@]}
+
+
+function DescendingOrder()
+{
+	for(( i=0; i<${#array[@]}; i++ ))
+	do
+		for(( j=0; j<${#array[@]}-1; j++ ))
+		do
+			if (( $(echo "${array[j+1]} > ${array[j]}") ))
+			then
+				temp=${array[j]}
+				array[j]=${array[j+1]}
+				array[j+1]=$temp
+			fi
+		done
+	done
+	echo "To data descending order"${array[@]}
+}
+DescendingOrder ${array[@]}
