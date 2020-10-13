@@ -59,6 +59,7 @@ done
 	echo "Array Data:" ${array[@]}
 
 
+#Sort data in Descending Order
 function DescendingOrder()
 {
 	for(( i=0; i<${#array[@]}; i++ ))
@@ -73,6 +74,32 @@ function DescendingOrder()
 			fi
 		done
 	done
-	echo "To data descending order"${array[@]}
+	echo ""
+	echo "To data descending order :"${array[@]}
 }
 DescendingOrder ${array[@]}
+
+
+#Sort Data In Ascending order
+function AscendingOrder()
+{
+        for(( i=0; i<${#array[@]}; i++ ))
+        do
+                for(( j=0; j<${#array[@]}-1; j++ ))
+                do
+                        if (( $(echo "${array[j+1]} < ${array[j]}") ))
+                        then
+                                temp=${array[j]}
+                                array[j]=${array[j+1]}
+                                array[j+1]=$temp
+                        fi
+                done
+        done
+	echo ""
+        echo "To data Ascending order : " ${array[@]}
+}
+AscendingOrder ${array[@]}
+ 
+
+
+##END
